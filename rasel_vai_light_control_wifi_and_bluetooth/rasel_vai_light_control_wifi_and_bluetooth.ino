@@ -18,8 +18,12 @@ Library Version: 3.6.4
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
-#define WIFI_SSID "Tahsin"
-#define WIFI_PASSWORD "Rasel@@@@1988"
+// #define WIFI_SSID "Tahsin"
+// #define WIFI_PASSWORD "Rasel@@@@1988"
+#define WIFI_SSID "BRACNet_Employee"
+#define WIFI_PASSWORD "a$UJ@n@pB@ngl@d3$h"
+
+
 #define WIFI_SEARCHING_COUNTER_MAX 150
 #define INTERNET_CONNECTION_COUNTER_MAX 150
 #define RTC_COUNTER_IN_SETUP_MAX 120
@@ -226,24 +230,6 @@ void setup() {
 }
 
 void loop() {
-  unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis >= MAIN_LOOP_INTERVAL) {
-    previousMillis = currentMillis;
-    if (Ping.ping(HOST, PING_TIMEOUT)) {
-      Serial.println("Online");
-      rtc_counter = 0;
-    } else {
-      Serial.println("Offline");
-      Serial.print("RTC Connection Counter: ");
-      Serial.println(rtc_counter);
-      rtc_counter++;
-      if (rtc_counter == RTC_COUNTER_MAX) {
-        Serial.println("RTC timout, Device will reset now");
-        rtc_counter = 0;
-        ESP.reset();
-      }
-    }
-  }
 }
 
 
